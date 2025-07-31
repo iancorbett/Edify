@@ -456,12 +456,8 @@ app.get("/api/observations/summary/:studentId", authenticateToken, async (req, r
 
     res.json({ summaries });
   } catch (err) {
-    console.error("Error generating summary:", err);
-
-    if (err.response) {
-      console.error("OpenAI error response:", err.response.status, err.response.data);
-    }
-    res.status(500).json({ error: "Failed to generate summaries" });
+    console.error("Error generating summary:", err.message, err.stack);
+res.status(500).json({ error: "Failed to generate summaries", details: err.message });
   }
 });
 
