@@ -390,6 +390,76 @@ app.get("/api/observations/:studentId", authenticateToken, async (req, res) => {
   }
 });
 
+app.get("/api/observations/summary/:studentId", authenticateToken, async (req, res) => {
+  const { studentId } = req.params;
+  const { id: userId, role } = req.user;
+
+  try {
+    let result;
+
+    if (role === "teacher") {
+      result = await pool.query(
+        `
+        SELECT observation_type, observation_text
+        FROM observations
+        WHERE student_id = $1 AND teacher_id = $2
+        `,
+        [studentId, userId]
+      );
+    } else if (role === "admin") {
+      result = await pool.query(
+        `
+        SELECT observation_type, observation_text
+        FROM observations
+        WHERE student_id = $1
+        `,
+        [studentId]
+      );
+    } else {
+      return res.status(403).json({ error: "Unauthorized" });
+    }
+
+    const observations = result.rows;
+
+    // Group observations by type
+    const grouped = {
+      academic: [],
+      social_emotional: [],
+      behavioral: [],
+    };
+
+    observations.forEach((obs) => {
+      const type = obs.observation_type.toLowerCase();
+      if (grouped[type]) grouped[type].push(obs.observation_text);
+    });
+
+    // Generate summaries for each type using OpenAI
+    const summaries = {};
+
+    for (const type in grouped) {
+      const texts = grouped[type];
+      if (texts.length === 0) {
+        summaries[type] = "No observations available.";
+        continue;
+      }
+
+      const prompt = `Summarize the following ${type.replace("_", " ")} observations:\n` +
+        texts.map((t, i) => `${i + 1}. ${t}`).join("\n");
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4",
+        messages: [{ role: "user", content: prompt }],
+      });
+
+      summaries[type] = completion.choices[0].message.content;
+    }
+
+    res.json({ summaries });
+  } catch (err) {
+    console.error("Error generating summary:", err);
+    res.status(500).json({ error: "Failed to generate summaries" });
+  }
+});
 
 
 app.get("/", (req, res) => {
