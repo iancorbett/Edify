@@ -3,10 +3,14 @@ import cors from "cors";
 import { Pool } from "pg";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import OpenAI from 'openai';
+
 
 dotenv.config();
 
 const SECRET_KEY = process.env.JWT_SECRET;
+const openaiApiKey = process.env.OPENAI_API_KEY;
+
 
 const app = express();
 app.use(cors());
