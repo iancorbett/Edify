@@ -28,6 +28,8 @@ function App() {
         <Route path="/contact" element={<ContactForm />}/>
         <Route path="/students/:id" element={<StudentDashboard />} />
         <Route path="/observations/:studentId" element={<ObservationsPage />} />
+        <Route path="/observationdata/:studentId" element={<ObservationData />} />
+
       </Routes>
     
   )
