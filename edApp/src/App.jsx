@@ -11,6 +11,7 @@ import { FormPage } from './pages/FormPage'
 import { ContactForm } from './components/ContactForm'
 import { StudentDashboard } from './pages/StudentDashboard'
 import { ObservationsPage } from './pages/ObservationsPage'
+import { ObservationData } from './pages/ObservationData'
 
 function App() {
 
