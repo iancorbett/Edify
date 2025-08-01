@@ -394,8 +394,11 @@ app.get("/api/observations/:studentId", authenticateToken, async (req, res) => {
 });
 
 app.get("/api/observations/summary/:studentId", authenticateToken, async (req, res) => {
+
   const { studentId } = req.params;
   const { id: userId, role } = req.user;
+
+  console.log(`SUMMARY ROUTE HIT for studentId: ${studentId} by userId: ${userId}, role: ${role}`);
 
   try {
     let result;
@@ -423,6 +426,7 @@ app.get("/api/observations/summary/:studentId", authenticateToken, async (req, r
     }
 
     const observations = result.rows;
+    console.log("Observations for summary:", observations);
 
     // Group observations by type
     const grouped = {
