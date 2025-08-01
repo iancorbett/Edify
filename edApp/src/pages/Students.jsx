@@ -35,7 +35,7 @@ export const Students = () => {
     <BackButton />
 
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">👩‍🏫 Your Students</h1>
+      <h1 className="text-3xl font-bold mb-6"> Your Students</h1>
 
       {students.length === 0 ? (
         <p>No students added yet.</p>

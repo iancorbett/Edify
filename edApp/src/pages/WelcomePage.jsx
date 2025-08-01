@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { BackButton } from "../components/BackButton";
+import { Footer } from "../components/Footer";
 
 export const WelcomePage = () => {
   return (
@@ -46,6 +47,7 @@ export const WelcomePage = () => {
         </button> */}
       </div>
     </div>
+    
     </section>
   );
 };
