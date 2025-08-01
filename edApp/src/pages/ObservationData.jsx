@@ -27,7 +27,7 @@ export const ObservationData = () => {
         if (!res.ok) throw new Error("Failed to fetch summary");
 
         const data = await res.json();
-        setSummaries(data);
+        setSummaries(data.summaries);
       } catch (err) {
         console.error("Error fetching AI summary:", err);
       } finally {
