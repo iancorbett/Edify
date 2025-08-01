@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { BackButton } from "../components/BackButton";
 import { StudentIndicators } from "../components/StudentIndicators";
+import  jwtDecode from "jwt-decode";
 
 export const StudentDashboard = () => {
   const { id } = useParams();

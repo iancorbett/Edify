@@ -16,6 +16,7 @@
     "emailjs-com": "^3.2.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "lucide-react": "^0.535.0",
     "node": "^20.19.4",
     "pg": "^8.16.3",
