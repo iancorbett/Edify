@@ -57,7 +57,7 @@ export const StudentDashboard = () => {
       <BackButton />
       
       <div className="p-8">
-        <h1 className="text-3xl font-bold mb-4">📋 {student.first_name} {student.last_name}</h1>
+        <h1 className="text-3xl font-bold mb-4 underline"> {student.first_name} {student.last_name}</h1>
         <StudentIndicators />
 
         
