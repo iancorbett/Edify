@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { About } from "../components/About";
 import { ContactForm } from "../components/ContactForm";
 
+
 const features = [
   {
     title: "Intuitive Interface",
@@ -76,7 +77,7 @@ export const HomePage = () => {
   </button>
 </div>
 
-
+        
       <Footer />
     </div>
   );
