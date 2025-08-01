@@ -35,7 +35,7 @@ export const WelcomePage = () => {
           <FormInput className="inline"/> Add Observation
           </span>
         </Link>
-        <button
+        {/* <button
           onClick={() => {
             localStorage.removeItem("token");
             window.location.href = "/login";
@@ -43,7 +43,7 @@ export const WelcomePage = () => {
           className="block bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition"
         >
           🚪 Logout
-        </button>
+        </button> */}
       </div>
     </div>
     </section>
