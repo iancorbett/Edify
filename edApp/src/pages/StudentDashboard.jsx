@@ -9,6 +9,7 @@ export const StudentDashboard = () => {
   const { id } = useParams();
   const [student, setStudent] = useState(null);
   const [observations, setObservations] = useState([]);
+  const [role, setRole] = useState(null); 
 
   useEffect(() => {
     const fetchStudent = async () => {
