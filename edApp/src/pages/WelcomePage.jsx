@@ -17,19 +17,19 @@ export const WelcomePage = () => {
       <div className="space-y-4">
         <Link
           to="/addstudent"
-          className="block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition border-2"
+          className="block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition border-2 shadow-md"
         >
           ➕ Add Student
         </Link>
         <Link
           to="/students"
-          className="block bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition border-2"
+          className="block bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition border-2 shadow-md"
         >
           📋 View Students
         </Link>
         <Link
           to="/formpage"
-          className="block bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition border-2"
+          className="block bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition border-2 shadow-md"
         >
             <span>
           <FormInput className="inline"/> Add Observation
