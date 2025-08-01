@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { BackButton } from "../components/BackButton";
 import { StudentIndicators } from "../components/StudentIndicators";
-//import  jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 export const StudentDashboard = () => {
   const { id } = useParams();
@@ -70,12 +70,14 @@ export const StudentDashboard = () => {
         <StudentIndicators />
 
         
-        <Link
-        to={`/observation-data/${id}`}
-        className="inline-block mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-      >
-        🔍 View AI Summary
-      </Link>
+        {role === "admin" && ( // ✅ Only admins can see this
+          <Link
+            to={`/observation-data/${id}`}
+            className="inline-block mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          >
+            🔍 View AI Summary
+          </Link>
+        )}
       </div>
     </section>
   );
