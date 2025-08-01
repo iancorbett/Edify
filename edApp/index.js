@@ -11,6 +11,9 @@ dotenv.config();
 const SECRET_KEY = process.env.JWT_SECRET;
 const openaiApiKey = process.env.OPENAI_API_KEY;
 
+console.log("OpenAI Key:", process.env.OPENAI_API_KEY); // TEMPORARY for debugging
+
+
 
 const app = express();
 app.use(cors());
@@ -447,7 +450,7 @@ app.get("/api/observations/summary/:studentId", authenticateToken, async (req, r
         texts.map((t, i) => `${i + 1}. ${t}`).join("\n");
 
       const completion = await openai.chat.completions.create({
-        model: "gpt-4",
+        model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: prompt }],
       });
 
