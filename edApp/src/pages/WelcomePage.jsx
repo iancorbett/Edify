@@ -9,7 +9,7 @@ export const WelcomePage = () => {
     <section>
       <Navbar />
       <BackButton />
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center">
       <h1 className="text-4xl font-bold mb-6">Welcome to Edify!</h1>
 
       
