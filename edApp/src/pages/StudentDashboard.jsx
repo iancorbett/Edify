@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { BackButton } from "../components/BackButton";
 import { StudentIndicators } from "../components/StudentIndicators";
-import  jwtDecode from "jwt-decode";
+//import  jwtDecode from "jwt-decode";
 
 export const StudentDashboard = () => {
   const { id } = useParams();
@@ -12,8 +12,15 @@ export const StudentDashboard = () => {
   const [role, setRole] = useState(null); 
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      const decoded = jwtDecode(token);  
+      setRole(decoded.role);
+    }
+
     const fetchStudent = async () => {
-      const token = localStorage.getItem("token");
+      
 
       try {
         const res = await fetch(`http://localhost:3001/api/students/${id}`, {
