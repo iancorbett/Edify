@@ -16,7 +16,11 @@ console.log("OpenAI Key:", process.env.OPENAI_API_KEY); // TEMPORARY for debuggi
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://edify-zvrt.onrender.com", "http://localhost:5173"],
+  credentials: true,
+}));
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
