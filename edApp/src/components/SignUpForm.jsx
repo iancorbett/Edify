@@ -20,7 +20,7 @@ export const SignUpForm = () => {
   useEffect(() => {
     const fetchSchools = async () => {
       try {
-        const res = await fetch("http://localhost:3001/api/schools");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/schools`);
         const data = await res.json();
         setSchools(data);
       } catch (err) {
@@ -44,7 +44,7 @@ export const SignUpForm = () => {
     console.log("Signup Data:", formData);
     
     try {
-        const res = await fetch("http://localhost:3001/api/signup", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/signup`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
