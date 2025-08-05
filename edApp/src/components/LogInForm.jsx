@@ -32,12 +32,14 @@ export const LogInForm = () => {
         body: JSON.stringify(formData),
       });
 
-      let data = {};
-try {
-  data = await res.json();
-} catch (jsonErr) {
-  console.warn("Failed to parse JSON:", jsonErr);
-}
+      let data;
+      try {
+        const text = await res.text();
+        data = text ? JSON.parse(text) : {};
+      } catch (jsonErr) {
+        console.warn("Failed to parse JSON:", jsonErr);
+        data = {};
+      }
 
 
       if (res.ok) {
