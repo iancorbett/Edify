@@ -25,7 +25,7 @@ export const ObservationForm = () => {
     const token = localStorage.getItem("token");
   
     try {
-      const res = await fetch("http://localhost:3001/api/observations", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/observations`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ export const ObservationForm = () => {
       const token = localStorage.getItem("token");
   
       try {
-        const res = await fetch("http://localhost:3001/api/students", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/students`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
