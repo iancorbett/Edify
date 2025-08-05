@@ -32,7 +32,13 @@ export const LogInForm = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      let data = {};
+try {
+  data = await res.json();
+} catch (jsonErr) {
+  console.warn("Failed to parse JSON:", jsonErr);
+}
+
 
       if (res.ok) {
         localStorage.setItem("token", data.token);
