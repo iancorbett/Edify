@@ -15,7 +15,7 @@ export const ObservationsPage = () => {
     const fetchObservations = async () => {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`http://localhost:3001/api/observations/${studentId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/observations/${studentId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
