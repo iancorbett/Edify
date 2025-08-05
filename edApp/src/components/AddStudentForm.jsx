@@ -24,7 +24,7 @@ export const AddStudentForm = () => {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch("http://localhost:3001/api/addstudent", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/addstudent`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
