@@ -1,5 +1,5 @@
 {
-  "name": "react",
+  "name": "edify-client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,17 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
     "emailjs-com": "^3.2.0",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "jwt-decode": "^4.0.0",
     "lucide-react": "^0.535.0",
-    "node": "^20.19.4",
-    "openai": "^5.11.0",
-    "pg": "^8.16.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.0",
