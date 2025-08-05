@@ -23,7 +23,7 @@ export const StudentDashboard = () => {
       
 
       try {
-        const res = await fetch(`http://localhost:3001/api/students/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/students/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -40,7 +40,7 @@ export const StudentDashboard = () => {
         const token = localStorage.getItem("token");
   
         try {
-          const res = await fetch(`http://localhost:3001/api/observations/${id}`, {
+          const res = await fetch(`${import.meta.env.VITE_API_URL}/api/observations/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
