@@ -17,17 +17,9 @@ console.log("OpenAI Key:", process.env.OPENAI_API_KEY); // TEMPORARY for debuggi
 
 const app = express();
 app.use(cors({
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      "https://edify-zvrt.onrender.com",
-      "http://localhost:5173"
-    ];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "https://edify-zvrt.onrender.com", // ✅ allow frontend
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
 
